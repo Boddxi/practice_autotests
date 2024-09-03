@@ -10,6 +10,17 @@ def test_guest_can_go_to_login_page(browser):
     page.open()                      # открываем страницу
     page.go_to_login_page()          # выполняем метод страницы — переходим на страницу логина
 
+# Чтобы выводить адекватное сообщение об ошибке, мы будем все проверки осуществлять с помощью assert и перехватывать исключения.
+# Для этого напишем вспомогательный метод поиска элемента в нашей базовой странице BasePage, который будет возвращать нам True или False.
+
+
+def test_guest_should_see_login_link(browser):
+    link = "http://selenium1py.pythonanywhere.com/"
+    page = MainPage(browser, link)
+    page.open()
+    page.should_be_login_link()
+
+
 
 
 # Так было первоначально:
