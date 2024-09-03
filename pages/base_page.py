@@ -18,6 +18,8 @@ class BasePage():
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
         self.url = url
+        # добавим команду для неявного ожидания со значением по умолчанию в 10
+        self.timeout = timeout  # устанавливаем значение времени ожидания для атрибута объекта
         self.browser.implicitly_wait(timeout)
 
     # добавим метод open. Он должен открывать нужную страницу в браузере, используя метод get(). open() может обращаться
