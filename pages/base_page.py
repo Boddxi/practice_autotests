@@ -5,6 +5,8 @@ import pytest
 from selenium.common.exceptions import NoSuchElementException
 # Теперь для всех проверок, что элемент действительно присутствует на странице, мы можем использовать этот метод.
 
+from pages.locators import BasePageLocators
+
 
 # базовая страница (с вспомогательными методами для работы с драйвером), от которой наследуются остальные классы
 class BasePage():
@@ -26,6 +28,10 @@ class BasePage():
     # к атрибутам класса: self.browser и self.url
     def open(self):
         self.browser.get(self.url)
+
+    def go_to_login_page(self):
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link.click()
 
 
 # Теперь в этом же классе реализуем метод is_element_present, в котором будем перехватывать исключение. В него будем передавать два аргумента:
