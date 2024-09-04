@@ -42,4 +42,12 @@ class MainPage(BasePage):
 
 
 
-
+# разработчики добавили alert, который вызывается при клике на нужную нам ссылку.
+# Добавив обработку alert в метод go_to_login_page, мы восстановим работоспособность всех тестов, не меняя самих тестов:
+# def go_to_login_page(self):
+#    link = self.browser.find_element(By.CSS_SELECTOR, "#login_link")
+#    link.click()
+#    alert = self.browser.switch_to.alert
+#    alert.accept()
+# Это еще одно преимущество использования паттерна Page Object — мы разделяем сам тест и логику взаимодействия со страницей.
+# Тест становится более читабельным, и его легче поддерживать при изменениях в коде приложения.
